@@ -1,0 +1,363 @@
+/* =====================
+   RESET E VARIÁVEIS GLOBAIS
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #ffffff;
+  --dark-bg: #2F1B14; /* Marrom escuro para elementos escuros */
+  --text-color: #2F1B14; /* Marrom escuro para texto principal */
+  --light-text: #8B7355; /* Marrom claro para texto secundário */
+  --shadow: rgba(0, 0, 0, 0.1);
+  --border-radius: 10px;
+  --transition: all 0.3s ease;
+  --primary-color: #DAA520; /* Dourado para botões, combinando com tema lash designer (elegante e sofisticado) */
+  --primary-hover: #B8860B; /* Dourado escuro para hover */
+}
+
+/* =====================
+   CORPO GERAL
+===================== */
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: #FAF0E6; /* Fundo bege claro (linho), para um tema nude e elegante relacionado a lash designer */
+}
+
+/* =====================
+   CONTAINER (Usado em várias seções)
+===================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =====================
+   BOTÃO VOLTAR AO TOPO
+===================== */
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none; /* Escondido por padrão, mostrado via JS */
+  box-shadow: 0 4px 10px var(--shadow);
+  transition: var(--transition);
+  z-index: 1000;
+}
+
+#backToTop:hover {
+  background: var(--primary-hover);
+}
+
+/* =====================
+   BOTÃO PRIMÁRIO (Usado no hero e agendamento)
+===================== */
+.btn-primary {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* =====================
+   SEÇÕES GERAIS
+===================== */
+section {
+  padding: 100px 0;
+}
+
+.section-title {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 60px;
+  color: var(--text-color);
+}
+
+/* =====================
+   HEADER / HERO
+===================== */
+#hero {
+  background: linear-gradient(rgba(47, 27, 20, 0.3), rgba(47, 27, 20, 0.3)), url('https://images.unsplash.com/photo-1589712235274-8d7f0c8b61b4') center/cover no-repeat; /* Mantive a mesma imagem do hero, pois o pedido foi para trocar a do meio (seção Sobre) */
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  max-width: 1100px;
+  width: 100%;
+  color: var(--white);
+}
+
+.hero-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  margin-bottom: 35px;
+  color: #f1f1f1;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px var(--shadow);
+  transition: var(--transition);
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* =====================
+   BENEFÍCIOS
+===================== */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.benefit-card {
+  background: var(--white);
+  padding: 35px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: 0 10px 25px var(--shadow);
+  transition: var(--transition);
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.benefit-card .icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+  margin-bottom: 15px;
+  font-family: 'Playfair Display', serif;
+}
+
+/* =====================
+   SOBRE
+===================== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.about-text p {
+  color: var(--light-text);
+}
+
+.about-image {
+  /* Adicionei background-image para a seção Sobre, trocando a imagem para uma diferente (close-up de cílios, relacionada a lash designer) */
+  background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px var(--shadow);
+  transition: var(--transition);
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.1); /* Mantive o background semi-transparente para consistência */
+  min-height: 400px; /* Ajustei para garantir que a imagem apareça bem */
+}
+
+.about-image img {
+  /* Ocultei a tag img original, assumindo que ela existia no HTML, para usar a background-image em vez disso */
+  display: none;
+}
+
+/* =====================
+   AGENDAMENTO (Corrigido e Expandido)
+===================== */
+.booking-form {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 50px;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 15px 35px var(--shadow);
+}
+
+/* Layout do formulário com flexbox */
+#bookingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Grupos de formulário (label + input) */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+/* Inputs, selects e textareas */
+#bookingForm input,
+#bookingForm select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+  box-sizing: border-box;
+}
+
+#bookingForm input:focus,
+#bookingForm select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 5px rgba(218, 165, 32, 0.5); /* Ajustado para dourado */
+}
+
+/* Botão de envio */
+#bookingForm button {
+  align-self: flex-start; /* Alinha à esquerda; pode ser center se preferir */
+}
+
+/* Mensagens de feedback */
+.message {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  text-align: center;
+}
+
+.message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  background: var(--dark-bg);
+  color: var(--white);
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
+}
+
+/* =====================
+   RESPONSIVO
+===================== */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .booking-form {
+    padding: 30px;
+  }
+
+  .benefit-card {
+    padding: 25px;
+  }
+
+  /* Agendamento em mobile */
+  #bookingForm {
+    gap: 20px;
+  }
+
+  #bookingForm button {
+    width: 100%; /* Botão full-width */
+    align-self: stretch;
+  }
+
+  /* Botão voltar ao topo em mobile */
+  #backToTop {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+}

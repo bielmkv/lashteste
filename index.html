@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lash Studio – Agende seu Horário | Extensão de Cílios Profissional</title>
+  <meta name="description" content="Landing page profissional para lash designer. Agende seu horário online para extensão de cílios clássica, volume brasileiro ou russo. Resultados naturais e duradouros." />
+  <meta name="keywords" content="lash designer, extensão de cílios, agendamento online, cílios naturais, volume brasileiro" />
+  <meta name="author" content="Lash Studio" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Link para CSS externo -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Botão Voltar ao Topo -->
+  <button id="backToTop" aria-label="Voltar ao topo">↑</button>
+
+  <!-- Header / Hero -->
+ <!-- Header / Hero -->
+<header id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Realce seu olhar com cílios perfeitos</h1>
+        <p>Agende seu procedimento com uma lash designer especializada e conquiste cílios impecáveis, naturais e duradouros.</p>
+        <a href="#agendamento" class="btn-primary">Agendar agora</a>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Exemplo de extensão de cílios aplicada" />
+      </div>
+    </div>
+  </div>
+</header>
+
+  <main>
+    <!-- Benefícios -->
+    <section id="beneficios">
+      <div class="container">
+        <h2 class="section-title">Por que escolher nosso estúdio?</h2>
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <div class="icon">✨</div>
+            <h3>Técnica Profissional</h3>
+            <p>Procedimentos modernos, seguros e personalizados para cada cliente, utilizando materiais de alta qualidade.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="icon">⏰</div>
+            <h3>Agendamento Rápido</h3>
+            <p>Escolha data e horário em poucos cliques, sem complicação, diretamente pelo WhatsApp.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="icon">💖</div>
+            <h3>Resultado Natural</h3>
+            <p>Cílios leves, confortáveis e com acabamento impecável que realçam sua beleza natural.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2>Sobre a Lash Designer</h2>
+          <p>Especialista em extensão de cílios, com foco em realçar a beleza natural de cada cliente. Ofereço atendimento humanizado em um ambiente aconchegante, utilizando materiais de alta qualidade e técnicas inovadoras para resultados duradouros e confortáveis.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9" alt="Lash designer aplicando extensão de cílios em uma cliente" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Agendamento -->
+    <section id="agendamento">
+      <div class="container">
+        <h2 class="section-title">Agende seu horário</h2>
+        <div class="booking-form">
+          <form id="bookingForm">
+            <div class="form-group">
+              <label for="name">Seu nome</label>
+              <input type="text" id="name" placeholder="Digite seu nome completo" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">WhatsApp</label>
+              <input type="tel" id="phone" placeholder="(11) 99999-9999" required />
+            </div>
+            <div class="form-group">
+              <label for="service">Serviço</label>
+              <select id="service" required>
+                <option value="">Selecione o serviço</option>
+                <option value="Extensão Clássica">Extensão Clássica</option>
+                <option value="Volume Brasileiro">Volume Brasileiro</option>
+                <option value="Volume Russo">Volume Russo</option>
+                <option value="Manutenção">Manutenção</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="date">Data</label>
+              <input type="date" id="date" required />
+            </div>
+            <div class="form-group">
+              <label for="time">Horário</label>
+              <input type="time" id="time" required />
+            </div>
+            <button type="submit" class="btn-primary">Confirmar agendamento</button>
+          </form>
+          <div id="formMessage" class="message" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Lash Studio • Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <!-- Script JavaScript -->
+  <script>
+    // Função para voltar ao topo
+    const backToTopBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTopBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    });
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Validação e envio do formulário
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const service = document.getElementById('service').value;
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const messageEl = document.getElementById('formMessage');
+
+      // Validações básicas
+      if (!name || !phone || !service || !date || !time) {
+        messageEl.textContent = 'Por favor, preencha todos os campos.';
+        messageEl.className = 'message error';
+        return;
+      }
+
+      const selectedDate = new Date(`${date}T${time}`);
+      if (selectedDate <= new Date()) {
+        messageEl.textContent = 'Por favor, selecione uma data e horário futuros.';
+        messageEl.className = 'message error';
+        return;
+      }
+
+      // Monta a mensagem
+      const message = `✨ NOVO AGENDAMENTO ✨\n\n👤 Nome: ${name}\n📞 WhatsApp: ${phone}\n💅 Serviço: ${service}\n📅 Data: ${date}\n⏰ Horário: ${time}`;
+
+      // Abre WhatsApp
+      const whatsappURL = `https://wa.me/55SEUNUMEROAQUI?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, '_blank');
+
+      // Feedback e reset
+      messageEl.textContent = 'Agendamento enviado com sucesso! Verifique o WhatsApp.';
+      messageEl.className = 'message success';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
